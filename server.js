@@ -2849,7 +2849,7 @@ app.get('/api/system/ota-update', (req, res) => {
       const channel = getUpdateChannel();
 
       send(5, "Downloading complete update...");
-      await runGit(["clone", "--quiet", "--depth", "1", "--branch", "main", `https://github.com/mariowOS/${channel}.git`, stagePath], os.tmpdir());
+      await runGit(["clone", "--quiet", "--depth", "1", "--branch", "main", `https://github.com/mariowstech/mariowOS-SP8.git`, stagePath], os.tmpdir());
       send(70, "Checking every downloaded file...");
       const files = await getStagedUpdateFiles(stagePath);
       if (files.length === 0) throw new Error("The update contains no files");
